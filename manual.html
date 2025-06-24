@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentação Completa - Simulador URM</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estilos adicionais para a documentação */
+        .toc {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 40px;
+            border-left: 4px solid var(--secondary);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .toc h3 {
+            margin-top: 0;
+            color: var(--primary);
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+            column-count: 2;
+            column-gap: 30px;
+        }
+        
+        .toc li {
+            margin: 12px 0;
+            break-inside: avoid;
+        }
+        
+        .toc a {
+            color: var(--secondary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .toc a:hover {
+            text-decoration: underline;
+        }
+        
+        .section {
+            margin-bottom: 50px;
+            counter-increment: section;
+        }
+        
+        .section h2 {
+            counter-reset: subsection;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .section h2::before {
+            content: counter(section) ".";
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 1.2em;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+        
+        .subsection {
+            margin-bottom: 30px;
+            counter-increment: subsection;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .subsection h3 {
+            position: relative;
+            margin-bottom: 15px;
+        }
+        
+        .subsection h3::before {
+            content: counter(section) "." counter(subsection) ".";
+            position: absolute;
+            left: -30px;
+            top: 0;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+        
+        .note {
+            background: #e3f2fd;
+            border-left: 4px solid var(--secondary);
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .definition {
+            background: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .figure {
+            text-align: center;
+            margin: 25px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .figure img {
+            max-width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .figure figcaption {
+            margin-top: 10px;
+            font-style: italic;
+            color: #666;
+        }
+        
+        .architecture {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .component {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-top: 3px solid var(--secondary);
+        }
+        
+        .component h4 {
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--primary);
+        }
+        
+        .instruction-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .instruction-table th, 
+        .instruction-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        .instruction-table th {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .instruction-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        @media (max-width: 768px) {
+            .toc ul {
+                column-count: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-book"></i> Documentação Completa do Simulador URM</h1>
+            <p>Máquina de Registradores Ilimitados - Teoria e Implementação</p>
+            <nav>
+                <a href="index.html"><i class="fas fa-arrow-left"></i> Voltar ao Simulador</a>
+            </nav>
+        </header>
+
+        <section class="documentation">
+            <div class="toc">
+                <h3><i class="fas fa-list-ol"></i> Sumário</h3>
+                <ul>
+                    <li><a href="#sec-introduction"><i class="fas fa-star"></i> 1. Introdução</a></li>
+                    <li><a href="#sec-theory"><i class="fas fa-brain"></i> 2. Teoria da Máquina URM</a></li>
+                    <li><a href="#sec-architecture"><i class="fas fa-sitemap"></i> 3. Arquitetura da URM</a></li>
+                    <li><a href="#sec-instructions"><i class="fas fa-code"></i> 4. Conjunto de Instruções</a></li>
+                    <li><a href="#sec-computability"><i class="fas fa-infinity"></i> 5. Poder Computacional</a></li>
+                    <li><a href="#sec-simulator"><i class="fas fa-laptop-code"></i> 6. Manual do Simulador</a></li>
+                    <li><a href="#sec-examples"><i class="fas fa-lightbulb"></i> 7. Exemplos de Programas</a></li>
+                    <li><a href="#sec-appendix"><i class="fas fa-bookmark"></i> Apêndice: Referências</a></li>
+                </ul>
+            </div>
+
+            <div id="sec-introduction" class="section">
+                <h2><i class="fas fa-star"></i> Introdução</h2>
+                <p>A Máquina de Registradores Ilimitados (Unlimited Register Machine - URM) é um modelo computacional teórico proposto por Shepherdson e Sturgis em 1963. Ela pertence à classe das máquinas de registradores, que são equivalentes em poder computacional à Máquina de Turing.</p>
+                
+                <div class="definition">
+                    <p><strong>Definição Formal:</strong> A URM é uma máquina abstrata que opera sobre uma sequência infinita de registradores (R1, R2, R3, ...), cada um capaz de armazenar um número natural (incluindo zero). A máquina executa um programa consistindo de uma sequência finita de instruções que manipulam os valores nesses registradores.</p>
+                </div>
+                
+                <p>Este simulador foi desenvolvido com os seguintes objetivos:</p>
+                <ul>
+                    <li>Proporcionar uma ferramenta educacional para o ensino de teoria da computação</li>
+                    <li>Demonstrar a execução de algoritmos em um modelo computacional fundamental</li>
+                    <li>Facilitar a compreensão de conceitos como computabilidade e complexidade</li>
+                    <li>Servir como plataforma para experimentação com programas URM</li>
+                </ul>
+            </div>
+
+            <div id="sec-theory" class="section">
+                <h2><i class="fas fa-brain"></i> Teoria da Máquina URM</h2>
+                
+                <div class="subsection">
+                    <h3>Contexto Histórico</h3>
+                    <p>A URM foi desenvolvida como uma alternativa mais simples à Máquina de Turing, mas igualmente poderosa em termos de capacidade computacional. Ela surgiu no contexto da teoria da computabilidade, que busca entender os limites fundamentais da computação.</p>
+                    
+                    <div class="note">
+                        <p><strong>Teorema de Equivalência:</strong> Shepherdson e Sturgis provaram em 1963 que qualquer função computável por uma Máquina de Turing também é computável por uma URM, e vice-versa.</p>
+                    </div>
+                </div>
+                
+                <div class="subsection">
+                    <h3>Fundamentos Teóricos</h3>
+                    <p>A URM opera baseada em quatro operações fundamentais:</p>
+                    <ol>
+                        <li>Atribuição de zero a um registrador</li>
+                        <li>Incremento de um registrador</li>
+                        <li>Cópia entre registradores</li>
+                        <li>Salto condicional com base na igualdade de registradores</li>
+                    </ol>
+                    
+                    <p>Estas operações, embora simples, são suficientes para implementar qualquer algoritmo computável, conforme estabelecido pela <strong>Tese de Church-Turing</strong>.</p>
+                    
+                    <div class="definition">
+                        <p><strong>Tese de Church-Turing:</strong> Qualquer função que possa ser calculada por um algoritmo eficiente pode ser calculada por uma Máquina de Turing (ou equivalentemente, por uma URM).</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="sec-architecture" class="section">
+                <h2><i class="fas fa-sitemap"></i> Arquitetura da URM</h2>
+                
+                <div class="subsection">
+                    <h3>Componentes Fundamentais</h3>
+                    
+                    <div class="architecture">
+                        <div class="component">
+                            <h4><i class="fas fa-memory"></i> Memória</h4>
+                            <p>Sequência infinita de registradores (R1, R2, R3, ...), cada um armazenando um número natural ≥ 0.</p>
+                            <p><strong>Propriedade:</strong> Acesso direto por índice</p>
+                        </div>
+                        
+                        <div class="component">
+                            <h4><i class="fas fa-microchip"></i> Unidade de Controle</h4>
+                            <p>Executa instruções sequencialmente, mantendo o estado atual da máquina.</p>
+                            <p><strong>Componentes:</strong>
+                                <ul>
+                                    <li>Contador de Programa (PC)</li>
+                                    <li>Registrador de Instrução Atual</li>
+                                </ul>
+                            </p>
+                        </div>
+                        
+                        <div class="component">
+                            <h4><i class="fas fa-list-ol"></i> Programa</h4>
+                            <p>Sequência finita de instruções indexadas (I1, I2, I3, ..., In).</p>
+                            <p><strong>Formato:</strong> Cada instrução é uma tupla (operação, operandos)</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="subsection">
+                    <h3>Fluxo de Execução</h3>
+                    <p>O ciclo de execução da URM segue os seguintes passos:</p>
+                    
+                    <ol>
+                        <li><strong>Inicialização:</strong>
+                            <ul>
+                                <li>Registradores são definidos com valores iniciais</li>
+                                <li>Contador de Programa (PC) é definido como 1</li>
+                            </ul>
+                        </li>
+                        
+                        <li><strong>Busca:</strong>
+                            <ul>
+                                <li>Instrução na posição PC é carregada</li>
+                            </ul>
+                        </li>
+                        
+                        <li><strong>Decodificação:</strong>
+                            <ul>
+                                <li>A instrução é interpretada</li>
+                            </ul>
+                        </li>
+                        
+                        <li><strong>Execução:</strong>
+                            <ul>
+                                <li>A operação é realizada nos registradores especificados</li>
+                                <li>PC é atualizado (incrementado ou definido para um novo valor)</li>
+                            </ul>
+                        </li>
+                        
+                        <li><strong>Terminação:</strong> Ocorre quando PC aponta para uma posição fora do programa</li>
+                    </ol>
+                    
+                    <div class="figure">
+                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='200' viewBox='0 0 400 200'><rect x='50' y='50' width='300' height='100' fill='%23f0f8ff' stroke='%233498db' stroke-width='2'/><text x='200' y='70' text-anchor='middle' font-family='Arial' font-size='14' fill='%23333'>Fluxo de Execução da URM</text><path d='M200,70 L200,100' stroke='%233498db' stroke-width='2' fill='none'/><circle cx='200' cy='110' r='10' fill='%233498db'/><text x='200' y='110' text-anchor='middle' font-family='Arial' font-size='12' fill='white'>1</text><text x='200' y='130' text-anchor='middle' font-family='Arial' font-size='10'>Inicialização</text><path d='M200,120 L200,150' stroke='%233498db' stroke-width='2' fill='none'/><circle cx='200' cy='160' r='10' fill='%233498db'/><text x='200' y='160' text-anchor='middle' font-family='Arial' font-size='12' fill='white'>2</text><text x='200' y='180' text-anchor='middle' font-family='Arial' font-size='10'>Busca</text></svg>" alt="Fluxo de execução da URM">
+                        <figcaption>Figura 1: Fluxo básico de execução da Máquina URM</figcaption>
+                    </div>
+                </div>
+            </div>
+
+            <div id="sec-instructions" class="section">
+                <h2><i class="fas fa-code"></i> Conjunto de Instruções</h2>
+                
+                <div class="subsection">
+                    <h3>Especificação Formal</h3>
+                    
+                    <table class="instruction-table">
+                        <thead>
+                            <tr>
+                                <th>Instrução</th>
+                                <th>Sintaxe</th>
+                                <th>Semântica</th>
+                                <th>Descrição Formal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Zero</td>
+                                <td><code>Z(n)</code></td>
+                                <td>R<sub>n</sub> ← 0</td>
+                                <td>Define o registrador n como zero</td>
+                            </tr>
+                            <tr>
+                                <td>Sucessor</td>
+                                <td><code>S(n)</code></td>
+                                <td>R<sub>n</sub> ← R<sub>n</sub> + 1</td>
+                                <td>Incrementa o valor no registrador n</td>
+                            </tr>
+                            <tr>
+                                <td>Transferência</td>
+                                <td><code>T(m,n)</code></td>
+                                <td>R<sub>n</sub> ← R<sub>m</sub></td>
+                                <td>Copia valor de R<sub>m</sub> para R<sub>n</sub></td>
+                            </tr>
+                            <tr>
+                                <td>Salto</td>
+                                <td><code>J(m,n,p)</code></td>
+                                <td>PC ← (R<sub>m</sub> = R<sub>n</sub>) ? p : PC+1</td>
+                                <td>Salta para instrução p se R<sub>m</sub> = R<sub>n</sub></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <div class="note">
+                        <p><strong>Nota:</strong> O salto condicional (J) é a única instrução que altera o fluxo sequencial de execução, permitindo implementar estruturas de controle como loops e condicionais.</p>
+                    </div>
+                </div>
+                
+                <div class="subsection">
+                    <h3>Propriedades de Computabilidade</h3>
+                    <p>O conjunto de instruções da URM é Turing-completo, o que significa que pode simular qualquer Máquina de Turing e, portanto, computar qualquer função computável.</p>
+                    
+                    <p>Esta completude é alcançada através da combinação das quatro instruções básicas, que permitem:</p>
+                    <ul>
+                        <li>Implementação de operações aritméticas básicas</li>
+                        <li>Controle de fluxo condicional e incondicional</li>
+                        <li>Manipulação de dados em memória</li>
+                        <li>Implementação de loops e recursão</li>
+                    </ul>
+                    
+                    <div class="definition">
+                        <p><strong>Teorema da Turing-Completude:</strong> Qualquer função computável por um algoritmo pode ser implementada usando apenas as quatro instruções básicas da URM.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="sec-computability" class="section">
+                <h2><i class="fas fa-infinity"></i> Poder Computacional</h2>
+                
+                <div class="subsection">
+                    <h3>Hierarquia de Computabilidade</h3>
+                    <p>A URM ocupa um lugar fundamental na hierarquia de modelos computacionais:</p>
+                    
+                    <div class="figure">
+                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='200' viewBox='0 0 400 200'><rect x='100' y='30' width='200' height='40' fill='%23e3f2fd' stroke='%232196F3' stroke-width='1'/><text x='200' y='55' text-anchor='middle' font-family='Arial' font-size='12' fill='%23333'>Máquina de Turing</text><rect x='120' y='80' width='160' height='40' fill='%23bbdefb' stroke='%232196F3' stroke-width='1'/><text x='200' y='105' text-anchor='middle' font-family='Arial' font-size='12' fill='%23333'>URM (Máquina de Registradores)</text><rect x='140' y='130' width='120' height='40' fill='%2390caf9' stroke='%232196F3' stroke-width='1'/><text x='200' y='155' text-anchor='middle' font-family='Arial' font-size='12' fill='%23333'>Autômatos Finitos</text></svg>" alt="Hierarquia de modelos computacionais">
+                        <figcaption>Figura 2: Posição da URM na hierarquia de modelos computacionais</figcaption>
+                    </div>
+                </div>
+                
+                <div class="subsection">
+                    <h3>Limitações Práticas</h3>
+                    <p>Apesar de seu poder teórico ilimitado, implementações práticas da URM possuem restrições:</p>
+                    
+                    <ul>
+                        <li><strong>Limite de registradores:</strong> Implementações reais usam um número finito</li>
+                        <li><strong>Limite de valores:</strong> Restrições de tamanho numérico devido a limitações de hardware</li>
+                        <li><strong>Detecção de loops infinitos:</strong> Problema indecidível na teoria, mas detectável pragmaticamente</li>
+                    </ul>
+                    
+                    <div class="note">
+                        <p>O simulador implementa limites práticos para prevenir travamentos: máximo de 1000 registradores e 10.000 passos de execução.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="sec-simulator" class="section">
+                <h2><i class="fas fa-laptop-code"></i> Manual do Simulador</h2>
+                
+                <div class="subsection">
+                    <h3>Arquitetura do Sistema</h3>
+                    <p>O simulador foi implementado usando uma arquitetura em três camadas:</p>
+                    
+                    <div class="architecture">
+                        <div class="component">
+                            <h4><i class="fas fa-cogs"></i> Camada Lógica (URM.js)</h4>
+                            <p>Implementação fiel da especificação URM</p>
+                            <ul>
+                                <li>Interpretador de instruções</li>
+                                <li>Gerenciamento de registradores</li>
+                                <li>Controle de fluxo de execução</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="component">
+                            <h4><i class="fas fa-desktop"></i> Camada de Apresentação (App.js)</h4>
+                            <p>Interface entre a lógica e a interface do usuário</p>
+                            <ul>
+                                <li>Manipulação de eventos</li>
+                                <li>Atualização da interface</li>
+                                <li>Gerenciamento de estado</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="component">
+                            <h4><i class="fas fa-paint-brush"></i> Camada de Interface (HTML/CSS)</h4>
+                            <p>Interface gráfica do usuário</p>
+                            <ul>
+                                <li>Editor de código</li>
+                                <li>Visualização de registradores</li>
+                                <li>Histórico de execução</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="subsection">
+                    <h3>Fluxo de Trabalho</h3>
+                    <p>Para utilizar eficientemente o simulador, siga este fluxo:</p>
+                    
+                    <ol>
+                        <li><strong>Edição:</strong>
+                            <ul>
+                                <li>Insira instruções no editor ou selecione um exemplo</li>
+                                <li>Defina valores iniciais para os registradores</li>
+                            </ul>
+                        </li>
+                        
+                        <li><strong>Compilação:</strong>
+                            <ul>
+                                <li>Clique em "Compilar" para preparar a execução</li>
+                                <li>Verifique erros de sintaxe</li>
+                            </ul>
+                        </li>
+                        
+                        <li><strong>Execução:</strong>
+                            <ul>
+                                <li>Use "Passo a Passo" para execução didática</li>
+                                <li>Use "Executar Tudo" para resultados rápidos</li>
+                                <li>Monitore registradores e histórico</li>
+                            </ul>
+                        </li>
+                        
+                        <li><strong>Análise:</strong>
+                            <ul>
+                                <li>Revise o histórico de execução</li>
+                                <li>Verifique valores finais dos registradores</li>
+                                <li>Identifique possíveis erros lógicos</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+                
+                <div class="subsection">
+                    <h3>Recursos Avançados</h3>
+                    <ul>
+                        <li><strong>Histórico de Execução:</strong> Registro completo de cada passo com estado dos registradores</li>
+                        <li><strong>Limite de Segurança:</strong> Detecção automática de loops infinitos</li>
+                        <li><strong>Exemplos Pedagógicos:</strong> Programas pré-implementados para funções computáveis</li>
+                        <li><strong>Responsividade:</strong> Interface adaptável a diferentes dispositivos</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="sec-examples" class="section">
+                <h2><i class="fas fa-lightbulb"></i> Exemplos de Programas</h2>
+                
+                <div class="subsection">
+                    <h3>Adição (R2 + R3 → R1)</h3>
+                    <pre>
+I1: J(3,2,5)  // Se R3 = R2, salta para I5 (fim)
+I2: S(1)       // Incrementa R1 (resultado)
+I3: S(3)       // Incrementa R3 (contador)
+I4: J(1,1,1)   // Salta incondicionalmente para I1</pre>
+                    
+                    <p><strong>Análise de Complexidade:</strong> O algoritmo executa em tempo O(n), onde n é o valor em R2.</p>
+                    
+                    <div class="note">
+                        <p><strong>Correção do Algoritmo:</strong> A cada iteração, R1 é incrementado e R3 é incrementado até igualar R2, resultando em R1 = R2 no final.</p>
+                    </div>
+                </div>
+                
+                <div class="subsection">
+                    <h3>Multiplicação (R2 * R3 → R1)</h3>
+                    <pre>
+I1: Z(4)      // Contador externo = 0
+I2: J(3,4,9)  // Se R3 = R4, salta para I9 (fim)
+I3: Z(5)      // Contador interno = 0
+I4: J(2,5,8)  // Se R2 = R5, salta para I8
+I5: S(1)      // Incrementa resultado
+I6: S(5)      // Incrementa contador interno
+I7: J(1,1,4)  // Volta para I4
+I8: S(4)      // Incrementa contador externo
+I9: J(1,1,2)  // Volta para I2</pre>
+                    
+                    <p><strong>Análise de Complexidade:</strong> O algoritmo executa em tempo O(m*n), onde m é R3 e n é R2.</p>
+                </div>
+                
+                <div class="subsection">
+                    <h3>Fatorial (R2! → R1)</h3>
+                    <pre>
+I1: T(2,3)    // Copia R2 para R3 (contador)
+I2: S(1)      // R1 = 1 (inicializa resultado)
+I3: J(3,1,9)  // Se contador = 1, salta para I9 (fim)
+I4: T(1,4)    // Salva valor atual de R1 em R4
+I5: Z(1)      // Zera R1 para multiplicação
+I6: J(4,5,9)  // Se R4 = R5 (sempre falso), salta para I9
+I7: S(1)      // Adiciona R3 ao resultado (R1 += R3)
+I8: S(5)      // Incrementa contador de multiplicação
+I9: J(5,4,12) // Se contador = valor original, termina multiplicação
+I10: J(1,1,6) // Continua multiplicação
+I11: Z(5)     // Reseta contador de multiplicação
+I12: S(3, -1) // Decrementa contador principal (pseudo)
+I13: J(1,1,3) // Volta para I3</pre>
+                    
+                    <div class="note">
+                        <p><strong>Nota:</strong> A instrução I12 (S(3,-1)) é uma pseudo-instrução. Na implementação real, o decremento deve ser simulado usando outras operações.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="sec-appendix" class="section">
+                <h2><i class="fas fa-bookmark"></i> Apêndice: Referências</h2>
+                
+                <div class="subsection">
+                    <h3>Bibliografia Fundamental</h3>
+                    <ul>
+                        <li>SHEPHERDSON, J. C.; STURGIS, H. E. Computability of Recursive Functions. Journal of the ACM, v. 10, n. 2, p. 217-255, 1963.</li>
+                        <li>CUTLAND, N. Computability: An Introduction to Recursive Function Theory. Cambridge University Press, 1980.</li>
+                        <li>HOPCROFT, J. E.; ULLMAN, J. D. Introduction to Automata Theory, Languages, and Computation. Addison-Wesley, 1979.</li>
+                    </ul>
+                </div>
+                
+                <div class="subsection">
+                    <h3>Recursos Adicionais</h3>
+                    <ul>
+                        <li>Material didático sobre teoria da computação</li>
+                        <li>Implementações alternativas de máquinas URM</li>
+                        <li>Problemas computacionais para prática</li>
+                    </ul>
+                </div>
+                
+                <div class="subsection">
+                    <h3>Sobre esta Implementação</h3>
+                    <p>Este simulador foi desenvolvido com fins exclusivamente educacionais, utilizando as seguintes tecnologias:</p>
+                    <ul>
+                        <li>JavaScript (ECMAScript 2022)</li>
+                        <li>HTML5 e CSS3</li>
+                        <li>Font Awesome para ícones</li>
+                    </ul>
+                    
+                    <div class="note">
+                        <p><strong>Licença:</strong> Este software é disponibilizado sob licença MIT. O código-fonte completo está disponível no repositório do projeto.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
