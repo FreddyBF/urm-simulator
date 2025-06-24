@@ -225,10 +225,18 @@
                 
                 <div class="subsection">
                     <h3>Contexto Histórico</h3>
-                    <p>A URM foi desenvolvida como uma alternativa mais simples à Máquina de Turing, mas igualmente poderosa em termos de capacidade computacional. Ela surgiu no contexto da teoria da computabilidade, que busca entender os limites fundamentais da computação.</p>
-                    
+                    <p>
+                        A URM foi desenvolvida como uma alternativa mais simples à Máquina de Turing, 
+                        mas igualmente poderosa em termos de capacidade computacional. 
+                        Ela surgiu no contexto da teoria da computabilidade, que busca entender os 
+                        limites fundamentais da computação.
+                    </p>
                     <div class="note">
-                        <p><strong>Teorema de Equivalência:</strong> Shepherdson e Sturgis provaram em 1963 que qualquer função computável por uma Máquina de Turing também é computável por uma URM, e vice-versa.</p>
+                        <p><strong>Teorema de Equivalência:</strong> 
+                            Shepherdson e Sturgis provaram em 1963 que qualquer 
+                            função computável por uma Máquina de Turing também é 
+                            computável por uma URM, e vice-versa.
+                        </p>
                     </div>
                 </div>
                 
@@ -242,10 +250,18 @@
                         <li>Salto condicional com base na igualdade de registradores</li>
                     </ol>
                     
-                    <p>Estas operações, embora simples, são suficientes para implementar qualquer algoritmo computável, conforme estabelecido pela <strong>Tese de Church-Turing</strong>.</p>
+                    <p>
+                        Estas operações, embora simples, são suficientes para implementar qualquer 
+                        algoritmo computável, conforme estabelecido pela <strong>
+                            Tese de Church-Turing</strong>.
+                    </p>
                     
                     <div class="definition">
-                        <p><strong>Tese de Church-Turing:</strong> Qualquer função que possa ser calculada por um algoritmo eficiente pode ser calculada por uma Máquina de Turing (ou equivalentemente, por uma URM).</p>
+                        <p><strong>Tese de Church-Turing:</strong> 
+                            Qualquer função que possa ser calculada por um algoritmo 
+                            eficiente pode ser calculada por uma Máquina de Turing 
+                            (ou equivalentemente, por uma URM).
+                        </p>
                     </div>
                 </div>
             </div>
@@ -259,17 +275,21 @@
                     <div class="architecture">
                         <div class="component">
                             <h4><i class="fas fa-memory"></i> Memória</h4>
-                            <p>Sequência infinita de registradores (R1, R2, R3, ...), cada um armazenando um número natural ≥ 0.</p>
+                            <p>
+                                Sequência infinita de registradores (R1, R2, R3, ...), 
+                                cada um armazenando um número natural ≥ 0.
+                            </p>
                             <p><strong>Propriedade:</strong> Acesso direto por índice</p>
                         </div>
                         
                         <div class="component">
                             <h4><i class="fas fa-microchip"></i> Unidade de Controle</h4>
                             <p>Executa instruções sequencialmente, mantendo o estado atual da máquina.</p>
-                            <p><strong>Componentes:</strong>
+                            <p>
+                                <strong>Componentes:</strong>
                                 <ul>
                                     <li>Contador de Programa (PC)</li>
-                                    <li>Registrador de Instrução Atual</li>
+                                    <li>Registrador de Instrução Actual</li>
                                 </ul>
                             </p>
                         </div>
@@ -309,7 +329,7 @@
                         <li><strong>Execução:</strong>
                             <ul>
                                 <li>A operação é realizada nos registradores especificados</li>
-                                <li>PC é atualizado (incrementado ou definido para um novo valor)</li>
+                                <li>PC é actualizado (incrementado ou definido para um novo valor)</li>
                             </ul>
                         </li>
                         
@@ -317,7 +337,9 @@
                     </ol>
                     
                     <div class="figure">
-                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='200' viewBox='0 0 400 200'><rect x='50' y='50' width='300' height='100' fill='%23f0f8ff' stroke='%233498db' stroke-width='2'/><text x='200' y='70' text-anchor='middle' font-family='Arial' font-size='14' fill='%23333'>Fluxo de Execução da URM</text><path d='M200,70 L200,100' stroke='%233498db' stroke-width='2' fill='none'/><circle cx='200' cy='110' r='10' fill='%233498db'/><text x='200' y='110' text-anchor='middle' font-family='Arial' font-size='12' fill='white'>1</text><text x='200' y='130' text-anchor='middle' font-family='Arial' font-size='10'>Inicialização</text><path d='M200,120 L200,150' stroke='%233498db' stroke-width='2' fill='none'/><circle cx='200' cy='160' r='10' fill='%233498db'/><text x='200' y='160' text-anchor='middle' font-family='Arial' font-size='12' fill='white'>2</text><text x='200' y='180' text-anchor='middle' font-family='Arial' font-size='10'>Busca</text></svg>" alt="Fluxo de execução da URM">
+                        <img 
+                            src="data:image/svg+xml;utf8,
+                            <svg xmlns='http://www.w3.org/2000/svg' width='400' height='200' viewBox='0 0 400 200'><rect x='50' y='50' width='300' height='100' fill='%23f0f8ff' stroke='%233498db' stroke-width='2'/><text x='200' y='70' text-anchor='middle' font-family='Arial' font-size='14' fill='%23333'>Fluxo de Execução da URM</text><path d='M200,70 L200,100' stroke='%233498db' stroke-width='2' fill='none'/><circle cx='200' cy='110' r='10' fill='%233498db'/><text x='200' y='110' text-anchor='middle' font-family='Arial' font-size='12' fill='white'>1</text><text x='200' y='130' text-anchor='middle' font-family='Arial' font-size='10'>Inicialização</text><path d='M200,120 L200,150' stroke='%233498db' stroke-width='2' fill='none'/><circle cx='200' cy='160' r='10' fill='%233498db'/><text x='200' y='160' text-anchor='middle' font-family='Arial' font-size='12' fill='white'>2</text><text x='200' y='180' text-anchor='middle' font-family='Arial' font-size='10'>Busca</text></svg>" alt="Fluxo de execução da URM">
                         <figcaption>Figura 1: Fluxo básico de execução da Máquina URM</figcaption>
                     </div>
                 </div>
@@ -328,7 +350,6 @@
                 
                 <div class="subsection">
                     <h3>Especificação Formal</h3>
-                    
                     <table class="instruction-table">
                         <thead>
                             <tr>
@@ -423,8 +444,7 @@
                 
                 <div class="subsection">
                     <h3>Arquitetura do Sistema</h3>
-                    <p>O simulador foi implementado usando uma arquitetura em três camadas:</p>
-                    
+                    <p>O simulador foi implementado usando uma arquitectura em três camadas:</p>
                     <div class="architecture">
                         <div class="component">
                             <h4><i class="fas fa-cogs"></i> Camada Lógica (URM.js)</h4>
@@ -598,6 +618,59 @@ I13: J(1,1,3) // Volta para I3</pre>
                     </div>
                 </div>
             </div>
+
+
+            <div class="content">
+            <div class="team-section">
+                <h2 class="section-title"><i class="fas fa-code"></i> Equipe de Desenvolvimento</h2>
+                
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="member-header">
+                            <div class="member-icon">
+                                <i class="fas fa-laptop-code"></i>
+                            </div>
+                            <div class="member-info">
+                                <h3>Alfredo Fernando Baptista</h3>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="member-header">
+                            <div class="member-icon">
+                                <i class="fas fa-laptop-code"></i>
+                            </div>
+                            <div class="member-info">
+                                <h3>Constantino Manuel Domingos Gola </h3>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="member-header">
+                            <div class="member-icon">
+                                <i class="fas fa-laptop-code"></i>
+                            </div>
+                            <div class="member-info">
+                                <h3>Manuel Samuel Fuxi</h3>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="member-header">
+                            <div class="member-icon">
+                                <i class="fas fa-laptop-code"></i>
+                            </div>
+                            <div class="member-info">
+                                <h3>Soares José Marques</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         </section>
     </div>
 </body>
