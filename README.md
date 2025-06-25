@@ -36,7 +36,7 @@ A **Unlimited Register Machine (URM)** é um modelo computacional minimalista e 
 ## 🌐 Acesse Gratuitamente
 
 🔗 Simples e acessível — sem instalação necessária:  
-**[https://github.com/FreddyBF/urm-simulator](https://github.com/FreddyBF/urm-simulator)**
+**[https://github.com/FreddyBF/urm-simulator](https://freddybf.github.io/urm-simulator/index.html)**
 
 ---
 
