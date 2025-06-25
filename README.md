@@ -4,7 +4,7 @@
 
 📍 Ideal para estudantes, curiosos ou educadores, este simulador permite **executar instruções da URM passo a passo**, acompanhar o comportamento dos registradores e perceber como algoritmos simples podem expressar processos computacionais universais.
 
-![Capa](https://github.com/FreddyBF/urm-simulator/blob/main/capa.png?raw=true)
+![Capa do Simulador URM](https://github.com/FreddyBF/urm-simulator/blob/main/capa.png?raw=true)
 
 ---
 
@@ -36,34 +36,43 @@ A **Unlimited Register Machine (URM)** é um modelo computacional minimalista e 
 ## 🌐 Acesse Gratuitamente
 
 🔗 Simples e acessível — sem instalação necessária:  
-**[https://github.com/FreddyBF/urm-simulator](https://freddybf.github.io/urm-simulator/index.html)**
+**[https://freddybf.github.io/urm-simulator/index.html](https://freddybf.github.io/urm-simulator/index.html)**
 
+---
+
+## 📖 Documentação Completa
+
+🗂️ Criamos uma página exclusiva com toda a documentação detalhada do simulador URM, cobrindo conceitos teóricos, exemplos visuais, instruções de uso e o propósito educacional do projeto.
+
+👉 Acesse aqui:  
+**[Documentação do Simulador URM](https://freddybf.github.io/urm-simulator/manual.html)**
+
+Ideal para estudantes e professores que desejam entender como aplicar a URM no ensino de computação teórica.
 ---
 
 ## 📸 Demonstração Visual
-[Video]
+
+[Video aqui] 
+💬 Exemplo: um programa que soma dois valores usando `S`, `T`, e `J`.
 
 ---
-
-## 🛠 Equipe Técnica
 
 ## 👥 Equipe Técnica
 
-| Integrante                       | Função                   | GitHub                                     |
-|----------------------------------|--------------------------|---------------------------------------------|
-| 👨‍💻 Alfredo Fernando Baptista       | Desenvolvedor     | [@FreddyBF](https://github.com/FreddyBF)       |
-| 🧑‍💻 Constantino M. D. Gola          | Desenvolvedor    | [@Constantino2024](https://github.com/User-Name)         |
-| 🎨 Manuel Samuel Fuxi             | Designer UI/UX            | [@](https://github.com/msfuxi)           |
-| 📝 Soares José Marques            | Documentação Técnica      | [@](https://github.com/sjmarques)     |
-                       |
+| Integrante                    | Função                   | GitHub                                     |
+|------------------------------|--------------------------|---------------------------------------------|
+| 👨‍💻 Alfredo Fernando Baptista    | Desenvolvedor             | [@FreddyBF](https://github.com/FreddyBF)       |
+| 🧑‍💻 Constantino M. D. Gola       | Desenvolvedor             | [@Constantino2024](https://github.com/Constantino2024) |
+| 🎨 Manuel Samuel Fuxi          | Designer UI/UX            | [@msfuxi](https://github.com/msfuxi)           |
+| 📝 Soares José Marques         | Documentação Técnica      | [@sjmarques](https://github.com/sjmarques)     |
 
 ---
+
 ## 📄 Licença e Código-Fonte
 
 🛡️ **Licença MIT** — Você é livre para usar, modificar e distribuir este projeto, com os devidos créditos.
 
-🔗 **Repositório GitHub:**  
-[![Código no GitHub](https://img.shields.io/badge/Código%20no%20GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/FreddyBF/urm-simulator)
 
-📦 **Clone ou fork para começar sua própria jornada URM!**
+📦 **Disponível para fork e clonagem**  
+Este repositório está aberto à comunidade: sinta-se à vontade para clonar, adaptar ou contribuir com melhorias ao projeto.
 
