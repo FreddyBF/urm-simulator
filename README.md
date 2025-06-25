@@ -4,7 +4,7 @@
 
 📍 Ideal para estudantes, curiosos ou educadores, este simulador permite **executar instruções da URM passo a passo**, acompanhar o comportamento dos registradores e perceber como algoritmos simples podem expressar processos computacionais universais.
 
-![Capa](https://github.com/FreddyBF/urm-simulator/blob/main/imagens/capa.png?raw=true)
+![Capa](https://github.com/FreddyBF/urm-simulator/blob/main/capa.png?raw=true)
 
 ---
 
