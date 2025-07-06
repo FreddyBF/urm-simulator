@@ -13,9 +13,9 @@ class UnlimitedRegisterMachine {
     const cleanInst = instruction.replace(/\s+/g, '');
     const pattern = /^([ZSTJ])\(([\d,]+)\)$/;
     const match = cleanInst.match(pattern);
-    if (!match) {
+    if (!match)
       throw new Error(`Instrução mal formatada: ${instruction}. Exemplos: Z(1), S(2), T(1,2), J(1,2,3).`);
-    }
+    
     const op = match[1];
     const args = match[2].split(',').map(Number);
     const argCount = { Z: 1, S: 1, T: 2, J: 3 };
@@ -29,12 +29,16 @@ class UnlimitedRegisterMachine {
         throw new Error(`Argumento inválido: ${arg}. Registradores devem ser inteiros ≥ 1.`);
       }
     });
+    //Retorna as cleanInst-instrunçoes validas, args-argumentos
     return { original: cleanInst, op, args };
   }
 
+
   addInstruction(instruction) {
+    //Remove os espacs bracos e verifica comentarios
     if (!instruction.trim() || instruction.trim().startsWith('//')) return;
     const parsedInst = this.parseInstruction(instruction);
+    //Empinha as instrunçoes
     this.instructions.push(parsedInst);
   }
 
@@ -61,11 +65,16 @@ class UnlimitedRegisterMachine {
     }
     if (this.instructionPtr < 1 || this.instructionPtr >= this.instructions.length) {
       this.state = "stopped";
-      return { done: true, message: "Execução concluída.", registers: [...this.registers] };
+      return { 
+        done: true, 
+        message: "Execução concluída.", 
+        registers: [...this.registers] 
+      };
     }
 
     const currentInst = this.instructions[this.instructionPtr];
     const { op, args, original } = currentInst;
+
     const stepInfo = {
       instructionPtr: this.instructionPtr,
       instruction: original,
@@ -158,7 +167,7 @@ class UnlimitedRegisterMachine {
     }
   }
 
-  // Novo método para reiniciar a máquina
+  //método para reiniciar a máquina
   reset() {
     this.registers = [];
     this.instructions = [null];
@@ -168,39 +177,3 @@ class UnlimitedRegisterMachine {
   }
 }
 
-
-
-
-
-
-const urmReset = new UnlimitedRegisterMachine();
-
-console.log("\n--- Test Case 6: Reset Functionality ---");
-
-urmReset.addInstruction("S(1)");
-urmReset.addInstruction("S(1)");
-urmReset.addInstruction("S(1)");
-
-try {
-    urmReset.compile([0]); // R1=0
-    urmReset.executeAll();
-    console.log(`Initial run - Final R1: ${urmReset.registers[0]}`);
-    console.assert(urmReset.registers[0] === 3, "Test Case 6 Failed: Initial run R1 should be 3.");
-
-    urmReset.reset();
-    console.log("Machine reset. State:", urmReset.state);
-    console.assert(urmReset.registers.length === 0, "Test Case 6 Failed: Registers should be empty after reset.");
-    console.assert(urmReset.instructions.length === 1 && urmReset.instructions[0] === null, "Test Case 6 Failed: Instructions should be reset.");
-    console.assert(urmReset.instructionPtr === 1, "Test Case 6 Failed: Instruction pointer should be 1.");
-    console.assert(urmReset.executionHistory.length === 0, "Test Case 6 Failed: Execution history should be empty.");
-
-    // Add new instructions and re-run
-    urmReset.addInstruction("S(1)");
-    urmReset.compile([0]); // R1=0
-    urmReset.executeAll();
-    console.log(`Run after reset - Final R1: ${urmReset.registers[0]}`);
-    console.assert(urmReset.registers[0] === 1, "Test Case 6 Failed: R1 should be 1 after reset and new program.");
-
-} catch (error) {
-    console.error("Error during Test Case 6:", error.message);
-}
