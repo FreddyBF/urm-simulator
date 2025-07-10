@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const stateDisplay = document.getElementById('state');
     const nextInstruction = document.getElementById('next-instruction');
     const historyDisplay = document.getElementById('execution-history');
+
+    //Exemplos selecionados
     const exampleSelect = document.getElementById('example-select');
     
     // Botões
@@ -13,45 +15,71 @@ document.addEventListener('DOMContentLoaded', () => {
     const stepBtn = document.getElementById('step-btn');
     const runBtn = document.getElementById('run-btn');
     const resetBtn = document.getElementById('reset-btn');
-    
+
     // Instância da URM
     const urm = new UnlimitedRegisterMachine();
-    
-    // Exemplos de programas ja prontos
+    // Exemplos de programas
     const examples = {
         soma: [
-            "J(3,2,6)",
-            "S(1)",
-            "S(3)",
+            "J(3,2,6) ",
+            "S(1) ",
+            "S(3)  ",
             "J(1,1,1) ",
-            "Z(3)"
+            "Z(3)  "
         ],
         multiplicacao: [
-            "Z(4)",
-            "J(3,4,9) ",
-            "Z(5) ",
-            "J(2,5,8) ",
-            "S(1) ",
-            "S(5) ",
-            "J(1,1,4) ",
-            "S(4)  ",
-            "J(1,1,2)"
-        ],
-        fatorial: [
-            "T(2,3)  ",
-            "S(1)   ",
-            "J(3,1,9) ",
-            "T(1,4)   ",
-            "Z(1)     ",
-            "J(4,5,9)  ",
-            "S(1)      ",
-            "S(5)     ",
-            "J(5,4,12) ",
-            "J(1,1,6) ",
-            "Z(5)     ",
-            "S(3, -1) ",
-            "J(1,1,3)"
-        ],
+  "Z(3)",
+  "Z(5)",
+  "J(5,2,13)",
+  "Z(4)",
+  "T(1,4)",
+  "Z(6)",
+  "J(6,4,11)",
+  "S(3)",
+  "S(6)",
+  "J(1,1,7)",
+  "S(5)",
+  "J(1,1,3)",
+  "T(3,1)"
+],
+        factorial: [
+  "Z(2)",
+  "S(2)",
+  "Z(3)",
+  "J(3,1,18)",
+  "S(3)",
+  "Z(4)",
+  "Z(5)",
+  "J(5,3,16)",
+  "Z(6)",
+  "J(6,2,14)",
+  "S(4)",
+  "S(6)",
+  "J(1,1,10)",
+  "S(5)",
+  "J(1,1,8)",
+  "T(4,2)",
+  "J(1,1,4)",
+  "T(2,1)"
+],
+        potencia: [
+  "Z(3)",
+  "S(3)",
+  "Z(4)",
+  "J(4,1,13)",
+  "Z(5)",
+  "Z(6)",
+  "J(5,2,10)",
+  "S(6)",
+  "S(5)",
+  "J(1,1,7)",
+  "T(6,3)",
+  "S(4)",
+  "J(1,1,4)",
+  "T(3,1)"
+]
+
+
     };
 
     // Carregar exemplo selecionado

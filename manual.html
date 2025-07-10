@@ -6,7 +6,176 @@
     <title>Documentação Completa - Simulador URM</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="manual.css">
+    <style>
+        .toc {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 40px;
+            border-left: 4px solid var(--secondary);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .toc h3 {
+            margin-top: 0;
+            color: var(--primary);
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+            column-count: 2;
+            column-gap: 30px;
+        }
+        
+        .toc li {
+            margin: 12px 0;
+            break-inside: avoid;
+        }
+        
+        .toc a {
+            color: var(--secondary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .toc a:hover {
+            text-decoration: underline;
+        }
+        
+        .section {
+            margin-bottom: 50px;
+            counter-increment: section;
+        }
+        
+        .section h2 {
+            counter-reset: subsection;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .section h2::before {
+            content: counter(section) ". ";
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 1.2em;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+        
+        .subsection {
+            margin-bottom: 30px;
+            counter-increment: subsection;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .subsection h3 {
+            position: relative;
+            margin-bottom: 15px;
+        }
+        
+        .subsection h3::before {
+            content: counter(section)  "." counter(subsection) ".";
+            position: absolute;
+            left: -30px;
+            top: 0;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+        
+        .note {
+            background: #e3f2fd;
+            border-left: 4px solid var(--secondary);
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .definition {
+            background: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .figure {
+            text-align: center;
+            margin: 25px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .figure img {
+            max-width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .figure figcaption {
+            margin-top: 10px;
+            font-style: italic;
+            color: #666;
+        }
+        
+        .architecture {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .component {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-top: 3px solid var(--secondary);
+        }
+        
+        .component h4 {
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--primary);
+        }
+        
+        .instruction-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .instruction-table th, 
+        .instruction-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        .instruction-table th {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .instruction-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        @media (max-width: 768px) {
+            .toc ul {
+                column-count: 1;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="container">
